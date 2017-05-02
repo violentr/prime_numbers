@@ -2,30 +2,49 @@
 
 class PrimeNumber
 
-  def self.take(number)
-    range = [*2..number]
-    range.each_with_object([]) do |i, array|
-      if array.size != number
-        store_prime_number(i, array)
-        increase_numbers_range(range, i)
+  attr_accessor :range, :primes_list
+  attr_reader :number
+
+  def initialize(number=ARGV.first)
+    @number = number || 10
+    @range = [*2..@number.to_i]
+    @primes_list = []
+  end
+
+  def get_results
+    range.each do |i|
+      if primes_list.size != number.to_i
+        store_prime_number(i)
+        increase_numbers_range(i)
       end
     end
   end
 
-  def self.output(data)
-    puts "This is your prime numbers: #{data}"
+  def output
+    puts "*****************************************************"
+    puts"\n"
+    puts "This is your prime numbers: #{primes_list.join(', ')}"
+    puts "In total you have #{primes_list.size} prime numbers"
+    puts "\n"
+    puts "*****************************************************"
   end
 
-  def self.store_prime_number(number, collection)
-    for i in (2..number) do
-      break if number % i == 0
+  def store_prime_number(integer)
+    for i in (2..integer) do
+      break if integer % i == 0
     end
-    collection <<  i if i == number
+    primes_list <<  i if i == integer
   end
 
-  def self.increase_numbers_range(range, number)
-    range << number += 1 if number >= range.last
+  def increase_numbers_range(integer)
+    range << integer += 1 if integer >= range.last
   end
 
 end
+
+prime = PrimeNumber.new
+prime.get_results
+prime.output
+
+
 
