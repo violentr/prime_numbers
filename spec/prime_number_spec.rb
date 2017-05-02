@@ -13,4 +13,16 @@ RSpec.describe PrimeNumber do
      expect(output).to eq(expected)
    end
  end
+ describe '.store_prime_number' do
+
+   it "should store prime number in a collection" do
+     output = PrimeNumber.store_prime_number(7, [])
+     expect(output).to eq [7]
+   end
+
+   it "should not store number in a collection" do
+     output = PrimeNumber.store_prime_number(10, [])
+     expect(output).to eq nil
+   end
+ end
 end
