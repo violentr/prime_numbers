@@ -25,4 +25,18 @@ RSpec.describe PrimeNumber do
      expect(output).to eq nil
    end
  end
+ describe '.increase_numbers_range' do
+
+   it "should increase range by one" do
+     range = [*1..10]
+     output = PrimeNumber.increase_numbers_range(range, 10)
+     expect(output).to include(11)
+   end
+   it "should not increase range" do
+     range = [*1..10]
+     output = PrimeNumber.increase_numbers_range(range, 9)
+     expect(output).to be nil
+   end
+
+ end
 end
