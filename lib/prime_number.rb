@@ -39,9 +39,13 @@ class PrimeNumber
 
 end
 
-prime = PrimeNumber.new
-prime.get_results
-prime.output
-
-
-
+unless ARGV.empty?
+  if ARGV.first.start_with?("-")
+    case ARGV.shift
+    when '--count'
+      prime = PrimeNumber.new(ARGV.first)
+      prime.get_results
+      prime.output
+    end
+  end
+end
