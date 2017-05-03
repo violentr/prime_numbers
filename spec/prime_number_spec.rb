@@ -1,5 +1,5 @@
 RSpec.describe PrimeNumber do
-let(:prime_number_instance) { PrimeNumber.new }
+let(:prime_number_instance) { PrimeNumber.new(10) }
 
  describe '#get_results' do
   before do

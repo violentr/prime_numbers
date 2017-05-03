@@ -1,13 +1,14 @@
-require_relative 'output_data'
 #!/usr/bin/env ruby
+
+require_relative 'output_data'
 
 class PrimeNumber
 
   attr_accessor :range, :primes_list
   attr_reader :number
 
-  def initialize(number=ARGV.first)
-    @number = number || 10
+  def initialize(number)
+    @number = number
     @range = [*2..@number.to_i]
     @primes_list = []
   end
