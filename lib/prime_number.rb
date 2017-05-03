@@ -1,3 +1,4 @@
+require_relative 'output_data'
 #!/usr/bin/env ruby
 
 class PrimeNumber
@@ -21,12 +22,7 @@ class PrimeNumber
   end
 
   def output
-    puts "*****************************************************"
-    puts"\n"
-    puts "This is your prime numbers: #{primes_list.join(', ')}"
-    puts "In total you have #{primes_list.size} prime numbers"
-    puts "\n"
-    puts "*****************************************************"
+    ::OutputData.new(primes_list).draw_table
   end
 
   def store_prime_number(integer)
